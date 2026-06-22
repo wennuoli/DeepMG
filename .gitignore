@@ -1,0 +1,25 @@
+# Data files (too large to upload)
+dataset/*.pkl
+dataset/PDBs/
+dataset/Dataset7.xlsx
+dataset/~$*.xlsx
+
+# Local notes not included in the release structure
+process/preprocess.md
+
+# Model weights
+pts/*.pt
+
+# Logs
+logs/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+process/sequences_7.fasta
