@@ -1,53 +1,44 @@
 # Pretrained DeepMG Model Weights
 
-The pretrained model weights of DeepMG are not included in this GitHub repository because of their large file size.
+Pretrained DeepMG model weights are not included in this GitHub repository because of their large file size.
 
-The pretrained weights can be downloaded from Zenodo:
+The pretrained model checkpoints are available from Zenodo:
 
 https://doi.org/10.5281/zenodo.21881285
 
+After downloading the released checkpoint files, place all `.pt` files directly in this `pts/` folder. Do not create any additional subfolders.
 
-## Installation
-
-1. Download the pretrained model archive from Zenodo.
-
-2. Extract all `.pt` model files from the downloaded archive.
-
-3. Place the extracted model files directly into this `pts/` folder.
-
-After installation, the directory structure should be:
+The expected directory structure is:
 
 ```text
 pts/
-│
-├── MG_Nodes_seed_40_fold_0.pt
-├── MG_Nodes_seed_40_fold_1.pt
-├── MG_Nodes_seed_40_fold_2.pt
-├── MG_Nodes_seed_40_fold_3.pt
-├── MG_Nodes_seed_40_fold_4.pt
-├── MG_Nodes_seed_41_fold_0.pt
-├── ...
-└── MG_Nodes_seed_42_fold_4.pt
+|-- MG_Nodes_seed_40_fold_*.pt
+|-- MG_Nodes_seed_41_fold_*.pt
+-- MG_Nodes_seed_42_fold_*.pt
 ```
 
-## Usage
+A total of 15 pretrained checkpoints should be available:
 
-No modification of the source code is required.
+- seeds 40, 41, and 42
+- folds 0-4 for each seed
 
-The provided scripts automatically load pretrained models from the `pts/` directory according to the predefined naming convention:
+The checkpoint naming convention is:
 
-MG_Nodes_seed_{seed}fold{fold}.pt
+```text
+MG_Nodes_seed_{seed}_fold_{fold}.pt
+```
 
 For example:
 
+```text
 pts/MG_Nodes_seed_40_fold_0.pt
+```
 
-will be automatically recognized when running the corresponding evaluation or prediction scripts.
+No modification of the source code is required.
 
+Notes:
 
-## Notes
-
-- Keep the original model filenames unchanged.
-- Keep the folder name as `pts`.
-- Do not rename or reorganize the `.pt` files, otherwise the provided scripts may not locate the pretrained models correctly.
-- The released weights correspond to the DeepMG model architecture and training configurations describe
+- Do not modify the checkpoint filenames.
+- Do not rename the `pts` folder.
+- Do not create additional directories such as `pts/models/` or `pts/pretrained/`.
+- Keeping the files directly under `pts/` allows the existing prediction and evaluation scripts to find the checkpoints using their predefined paths.

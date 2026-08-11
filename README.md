@@ -15,19 +15,18 @@ DeepMG/
 |-- history.json               # Training records
 |-- dataset/
 |   |-- Dataset.xlsx           # Main DeepMG dataset
+|   |-- README.md              # Instructions for downloading large dataset artifacts
 |   |-- collate_smi.py         # SMILES representation checking utility
 |   |-- collate_seq.py         # Protein sequence/PDB/embedding checking utility
-|   |-- embeddings.pkl         # ESM protein embeddings
-|   |-- smiles2rep.pkl         # Uni-Mol molecular representations
-|   |-- processed.pkl          # Cached graph dataset
-|   -- PDBs/                   # Protein structure files
+|   -- ...
 |-- process/
 |   |-- clean.py               # Data cleaning and ID assignment
 |   |-- fasta_m.py             # Standalone FASTA generation utility
 |   |-- esm.py                 # Standalone ESM embedding utility
 |   |-- protein_preprocess.py  # Combined protein FASTA/ESM/ESMFold workflow
 |   -- Uni.py                  # Uni-Mol molecular representation generation
--- pts/                        # Trained model checkpoints
+-- pts/
+    -- README.md               # Instructions for downloading pretrained model weights
 ```
 
 ## Environment Setup
@@ -71,17 +70,38 @@ esm environment
 - biopython 1.81
 ```
 
+## Data and Pretrained Models
+
+Large artifacts required for reproducing DeepMG are distributed separately from this GitHub repository because of their file size.
+
+The released preprocessing artifacts and pretrained DeepMG model weights are available from Zenodo:
+
+https://doi.org/10.5281/zenodo.21881285
+
+Please refer to:
+
+- `dataset/README.md` for downloading and placing the large dataset-related artifacts.
+- `pts/README.md` for downloading and placing the pretrained model checkpoints.
+
 ## Reproduce DeepMG with the Released Dataset
 
-### 1. Activate the model environment
+### 1. Download the required large files
+
+Large preprocessing artifacts and pretrained model checkpoints are distributed through Zenodo:
+
+https://doi.org/10.5281/zenodo.21881285
+
+Please follow `dataset/README.md` for dataset-related artifacts and `pts/README.md` for pretrained model checkpoints.
+
+### 2. Activate the model environment
 
 ```bash
 conda activate mg
 ```
 
-### 2. Prepare data and checkpoints
+### 3. Prepare data and checkpoints
 
-Place the released large files in the following locations:
+After downloading the required artifacts according to `dataset/README.md` and `pts/README.md`, place the files in the following locations:
 
 ```text
 dataset/Dataset.xlsx
@@ -92,9 +112,9 @@ dataset/PDBs/
 pts/MG_Nodes_seed_{40,41,42}_fold_{0,1,2,3,4}.pt
 ```
 
-The `dataset/*.pkl`, `dataset/PDBs/`, and `pts/*.pt` files are large artifacts and may be distributed separately from the GitHub repository.
+The `dataset/*.pkl`, `dataset/PDBs/`, and `pts/*.pt` files are large artifacts distributed separately from the GitHub repository. `Dataset.xlsx` is included in this repository when available and does not need to be downloaded from Zenodo unless a separate release note states otherwise.
 
-### 3. Train / reproduce the model
+### 4. Train / reproduce the model
 
 ```bash
 python main.py
@@ -102,9 +122,17 @@ python main.py
 
 By default, `main.py` loads `dataset/processed.pkl` if it exists. If the cache is absent, `preprocess.py` builds graph data from `dataset/Dataset.xlsx`, `dataset/embeddings.pkl`, `dataset/smiles2rep.pkl`, and `dataset/PDBs/`.
 
-### 4. Predict with released checkpoints
+### 5. Predict with released checkpoints
 
 Before prediction, make sure the `pts/` folder exists and contains the 15 trained DeepMG checkpoints from seeds 40, 41, and 42 with folds 0-4.
+
+The checkpoint naming convention is:
+
+```text
+MG_Nodes_seed_{seed}_fold_{fold}.pt
+```
+
+All `.pt` checkpoint files must be placed directly in `pts/` without additional subdirectories.
 
 ```bash
 python predict.py
