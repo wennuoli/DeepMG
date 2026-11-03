@@ -19,8 +19,6 @@ The release includes `Dataset.xlsx`, precomputed input features, protein structu
 
 **Dataset and pretrained model DOI:** [10.5281/zenodo.23905592](https://doi.org/10.5281/zenodo.23905592)
 
-The DOI is reserved for the current Zenodo draft. Files will be publicly available after the record is published.
-
 Download `DeepMG_release.zip` and extract it directly into this repository's root directory. The extracted layout is:
 
 ```text
