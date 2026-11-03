@@ -1,25 +1,26 @@
-# Data files (too large to upload)
+# Externally distributed datasets and weights
+dataset/*.xlsx
 dataset/*.pkl
+dataset/*.zip
 dataset/PDBs/
-dataset/Dataset7.xlsx
-dataset/~$*.xlsx
-
-# Local notes not included in the release structure
-process/preprocess.md
-
-# Model weights
 pts/*.pt
+DeepMG_dataset_and_pretrained_model/
+DeepMG_release.zip
 
-# Logs
+# Generated results and local release work
 logs/
+predict/
+result_additional_seeds/
+new_MG/
 
-# Python
+# Local preprocessing notes
+process/preprocess.md
+process/sequences_7.fasta
+
+# Python and editors
 __pycache__/
 *.pyc
 *.egg-info/
 .eggs/
-
-# IDE
-.vscode/
 .idea/
-process/sequences_7.fasta
+.vscode/
