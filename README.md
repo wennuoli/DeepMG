@@ -15,7 +15,7 @@ Protein preprocessing from new sequences uses the separate environment in `esm_e
 
 ## Dataset and pretrained model
 
-The modeling dataset contains 2354 records, including 1597 positive and 757 negative labels, and 2338 unique molecular structures. The release includes a single-sheet `Dataset.xlsx`, precomputed molecular and protein features, sequence-predicted protein structures, and the pretrained checkpoint `deepmg.pt`.
+The release includes `Dataset.xlsx`, precomputed input features, protein structures, and the pretrained checkpoint `deepmg.pt`.
 
 **Download: the new Zenodo record will be linked here after it is uploaded.**
 
@@ -46,7 +46,7 @@ Effector name, Effector Sequence, Smiles_ID, Sequence_ID,
 Effector_Sequence_ID
 ```
 
-The `old ID` column is retained for provenance. Original activity labels use reported DC50 or IC50 below 1000 nM, or reported Dmax/another explicit protein degradation percentage above 60%.
+`ID` identifies the molecular glue; the same molecular structure has the same ID across its target-effector records.
 
 ## Prediction
 
