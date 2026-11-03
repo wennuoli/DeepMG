@@ -17,7 +17,9 @@ Protein preprocessing from new sequences uses the separate environment in `esm_e
 
 The release includes `Dataset.xlsx`, precomputed input features, protein structures, and the pretrained checkpoint `deepmg.pt`.
 
-**Download: the new Zenodo record will be linked here after it is uploaded.**
+**Dataset and pretrained model DOI:** [10.5281/zenodo.23905592](https://doi.org/10.5281/zenodo.23905592)
+
+The DOI is reserved for the current Zenodo draft. Files will be publicly available after the record is published.
 
 Download `DeepMG_release.zip` and extract it directly into this repository's root directory. The extracted layout is:
 
