@@ -8,6 +8,7 @@ DeepMG_dataset_and_pretrained_model/
 DeepMG_release.zip
 
 # Generated results and local release work
+history.json
 logs/
 predict/
 result_additional_seeds/
