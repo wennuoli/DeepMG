@@ -41,7 +41,7 @@ Use the Excel, features, and model from the same release. The data and weights a
 `Dataset.xlsx` contains the `Model_Dataset` worksheet with these columns:
 
 ```text
-ID, old ID, Name, label, Smiles, Target name, Sequence,
+ID, Name, label, Smiles, Target name, Sequence,
 Effector name, Effector Sequence, Smiles_ID, Sequence_ID,
 Effector_Sequence_ID
 ```
